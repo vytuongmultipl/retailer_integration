@@ -1,0 +1,316 @@
+{
+  "healthy": {
+    "elapsed_seconds": 1.15,
+    "accepted": 160,
+    "duplicates": 12,
+    "rejected": 2,
+    "expected": 160,
+    "request_attempts": 16,
+    "pages": 16,
+    "retries_by_cause": {},
+    "completeness": 1.0,
+    "requests_per_accepted_observation": 0.1
+  },
+  "healthy_replay": {
+    "elapsed_seconds": 0.0,
+    "accepted": 160,
+    "duplicates": 12,
+    "rejected": 2,
+    "expected": 160,
+    "request_attempts": 16,
+    "pages": 16,
+    "retries_by_cause": {},
+    "completeness": 1.0,
+    "requests_per_accepted_observation": 0.1
+  },
+  "recovery": {
+    "elapsed_seconds": 1.45,
+    "accepted": 160,
+    "duplicates": 12,
+    "rejected": 2,
+    "expected": 160,
+    "request_attempts": 18,
+    "pages": 16,
+    "retries_by_cause": {
+      "429": 1,
+      "503": 1
+    },
+    "completeness": 1.0,
+    "requests_per_accepted_observation": 0.1125
+  },
+  "recovery_replay": {
+    "elapsed_seconds": 0.0,
+    "accepted": 160,
+    "duplicates": 12,
+    "rejected": 2,
+    "expected": 160,
+    "request_attempts": 18,
+    "pages": 16,
+    "retries_by_cause": {
+      "429": 1,
+      "503": 1
+    },
+    "completeness": 1.0,
+    "requests_per_accepted_observation": 0.1125
+  },
+  "recovery_attempts": [
+    {
+      "attempt": 1,
+      "result": "429",
+      "retry_cause": null,
+      "delay_before": 0.0
+    },
+    {
+      "attempt": 2,
+      "result": "503",
+      "retry_cause": "429",
+      "delay_before": 0.12
+    },
+    {
+      "attempt": 3,
+      "result": "ok",
+      "retry_cause": "503",
+      "delay_before": 0.08
+    }
+  ],
+  "timeout": {
+    "elapsed_seconds": 0.375,
+    "jobs": [
+      {
+        "retailer": "demomart",
+        "store_id": "store-01",
+        "run_id": "run-1",
+        "status": "incomplete",
+        "error": "timeout",
+        "accepted": 10,
+        "duplicates": 0,
+        "rejected": 0,
+        "expected": 40,
+        "request_attempts": 4,
+        "pages": 1,
+        "retries_by_cause": {
+          "timeout": 2
+        },
+        "completeness": 0.25,
+        "requests_per_accepted_observation": 0.4
+      }
+    ],
+    "accepted": 10,
+    "duplicates": 0,
+    "rejected": 0,
+    "expected": 40,
+    "request_attempts": 4,
+    "pages": 1,
+    "retries_by_cause": {
+      "timeout": 2
+    },
+    "completeness": 0.25,
+    "requests_per_accepted_observation": 0.4
+  },
+  "restart": {
+    "before": {
+      "elapsed_seconds": 0,
+      "accepted": 20,
+      "duplicates": 1,
+      "rejected": 2,
+      "expected": 40,
+      "request_attempts": 2,
+      "pages": 2,
+      "retries_by_cause": {},
+      "completeness": 0.5,
+      "requests_per_accepted_observation": 0.1
+    },
+    "after": {
+      "elapsed_seconds": 1.0,
+      "accepted": 160,
+      "duplicates": 12,
+      "rejected": 2,
+      "expected": 160,
+      "request_attempts": 16,
+      "pages": 16,
+      "retries_by_cause": {},
+      "completeness": 1.0,
+      "requests_per_accepted_observation": 0.1
+    }
+  },
+  "repeated_cursor": {
+    "elapsed_seconds": 0.125,
+    "jobs": [
+      {
+        "retailer": "demomart",
+        "store_id": "store-01",
+        "run_id": "run-1",
+        "status": "incomplete",
+        "error": "repeated pagination cursor",
+        "accepted": 10,
+        "duplicates": 0,
+        "rejected": 0,
+        "expected": 40,
+        "request_attempts": 2,
+        "pages": 1,
+        "retries_by_cause": {},
+        "completeness": 0.25,
+        "requests_per_accepted_observation": 0.2
+      }
+    ],
+    "accepted": 10,
+    "duplicates": 0,
+    "rejected": 0,
+    "expected": 40,
+    "request_attempts": 2,
+    "pages": 1,
+    "retries_by_cause": {},
+    "completeness": 0.25,
+    "requests_per_accepted_observation": 0.2
+  },
+  "missing_items": {
+    "elapsed_seconds": 0.125,
+    "jobs": [
+      {
+        "retailer": "demomart",
+        "store_id": "store-01",
+        "run_id": "run-1",
+        "status": "incomplete",
+        "error": "missing or invalid items",
+        "accepted": 10,
+        "duplicates": 0,
+        "rejected": 0,
+        "expected": 40,
+        "request_attempts": 2,
+        "pages": 1,
+        "retries_by_cause": {},
+        "completeness": 0.25,
+        "requests_per_accepted_observation": 0.2
+      }
+    ],
+    "accepted": 10,
+    "duplicates": 0,
+    "rejected": 0,
+    "expected": 40,
+    "request_attempts": 2,
+    "pages": 1,
+    "retries_by_cause": {},
+    "completeness": 0.25,
+    "requests_per_accepted_observation": 0.2
+  },
+  "conflicting_duplicate": {
+    "elapsed_seconds": 0.275,
+    "jobs": [
+      {
+        "retailer": "demomart",
+        "store_id": "store-01",
+        "run_id": "run-1",
+        "status": "complete_with_rejections",
+        "error": null,
+        "accepted": 40,
+        "duplicates": 2,
+        "rejected": 3,
+        "expected": 40,
+        "request_attempts": 4,
+        "pages": 4,
+        "retries_by_cause": {},
+        "completeness": 1.0,
+        "requests_per_accepted_observation": 0.1
+      }
+    ],
+    "accepted": 40,
+    "duplicates": 2,
+    "rejected": 3,
+    "expected": 40,
+    "request_attempts": 4,
+    "pages": 4,
+    "retries_by_cause": {},
+    "completeness": 1.0,
+    "requests_per_accepted_observation": 0.1
+  },
+  "empty_continuing": {
+    "elapsed_seconds": 0.275,
+    "jobs": [
+      {
+        "retailer": "demomart",
+        "store_id": "store-01",
+        "run_id": "run-1",
+        "status": "complete",
+        "error": null,
+        "accepted": 40,
+        "duplicates": 2,
+        "rejected": 0,
+        "expected": 40,
+        "request_attempts": 4,
+        "pages": 4,
+        "retries_by_cause": {},
+        "completeness": 1.0,
+        "requests_per_accepted_observation": 0.1
+      }
+    ],
+    "accepted": 40,
+    "duplicates": 2,
+    "rejected": 0,
+    "expected": 40,
+    "request_attempts": 4,
+    "pages": 4,
+    "retries_by_cause": {},
+    "completeness": 1.0,
+    "requests_per_accepted_observation": 0.1
+  },
+  "empty_terminal": {
+    "elapsed_seconds": 0.125,
+    "jobs": [
+      {
+        "retailer": "demomart",
+        "store_id": "store-01",
+        "run_id": "run-1",
+        "status": "incomplete",
+        "error": "terminal page with unexpected observation count",
+        "accepted": 10,
+        "duplicates": 0,
+        "rejected": 0,
+        "expected": 40,
+        "request_attempts": 2,
+        "pages": 2,
+        "retries_by_cause": {},
+        "completeness": 0.25,
+        "requests_per_accepted_observation": 0.2
+      }
+    ],
+    "accepted": 10,
+    "duplicates": 0,
+    "rejected": 0,
+    "expected": 40,
+    "request_attempts": 2,
+    "pages": 2,
+    "retries_by_cause": {},
+    "completeness": 0.25,
+    "requests_per_accepted_observation": 0.2
+  },
+  "pagination_limit": {
+    "elapsed_seconds": 0.125,
+    "jobs": [
+      {
+        "retailer": "demomart",
+        "store_id": "store-01",
+        "run_id": "run-1",
+        "status": "incomplete",
+        "error": "pagination limit reached",
+        "accepted": 20,
+        "duplicates": 1,
+        "rejected": 2,
+        "expected": 40,
+        "request_attempts": 2,
+        "pages": 2,
+        "retries_by_cause": {},
+        "completeness": 0.5,
+        "requests_per_accepted_observation": 0.1
+      }
+    ],
+    "accepted": 20,
+    "duplicates": 1,
+    "rejected": 2,
+    "expected": 40,
+    "request_attempts": 2,
+    "pages": 2,
+    "retries_by_cause": {},
+    "completeness": 0.5,
+    "requests_per_accepted_observation": 0.1
+  }
+}

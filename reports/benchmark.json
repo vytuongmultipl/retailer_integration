@@ -1,0 +1,44 @@
+{
+  "sequential_healthy": {
+    "concurrency": 1,
+    "elapsed_seconds": 30.917136,
+    "accepted": 4000,
+    "duplicates": 300,
+    "rejected": 2,
+    "expected": 4000,
+    "request_attempts": 400,
+    "pages": 400,
+    "retries_by_cause": {},
+    "completeness": 1.0,
+    "requests_per_accepted_observation": 0.1
+  },
+  "parallel_healthy": {
+    "concurrency": 8,
+    "elapsed_seconds": 6.346221,
+    "accepted": 4000,
+    "duplicates": 300,
+    "rejected": 2,
+    "expected": 4000,
+    "request_attempts": 400,
+    "pages": 400,
+    "retries_by_cause": {},
+    "completeness": 1.0,
+    "requests_per_accepted_observation": 0.1
+  },
+  "parallel_recovery": {
+    "concurrency": 8,
+    "elapsed_seconds": 5.820151,
+    "accepted": 4000,
+    "duplicates": 300,
+    "rejected": 2,
+    "expected": 4000,
+    "request_attempts": 402,
+    "pages": 400,
+    "retries_by_cause": {
+      "429": 1,
+      "503": 1
+    },
+    "completeness": 1.0,
+    "requests_per_accepted_observation": 0.1005
+  }
+}
