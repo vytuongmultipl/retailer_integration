@@ -14,6 +14,8 @@ python -B evidence.py --out .\reports --benchmark
 
 The second collection reuses the committed checkpoints and adds zero requests or observations for completed jobs. Reports show cumulative ledger counts and request costs, and elapsed time for the current invocation. Use a fresh database for an independent measurement. Omit `--benchmark` to rerun only the correctness and fault scenarios with a virtual clock.
 
+For a quick demo, run `python -B evidence.py --out data/demo-reports`. It writes `coverage.json` and `verification.json`. Add `--benchmark` to also write `benchmark.json`. The full run takes about 45 seconds on the reference machine. The sequential baseline alone takes about 30 seconds because it makes 400 mock requests with a 50 ms delay per request and 75 ms spacing between request starts for each store. The command announces each phase and prints the benchmark path when it finishes. Use a fresh output directory to keep each run's reports together.
+
 ## Collection and reporting
 
 - `demomart.py` generates the fixture, injects local faults, checks the response shape, and normalizes listing fields. Every fixture request waits 50 ms on its supplied clock, including failed attempts.

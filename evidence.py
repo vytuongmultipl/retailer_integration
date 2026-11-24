@@ -190,6 +190,7 @@ def benchmark(directory):
         ("parallel_healthy", 8, None),
         ("parallel_recovery", 8, RECOVERY),
     ):
+        print(f"Starting {name}: 50 stores, {concurrency} worker(s).", flush=True)
         with Ledger(directory / f"{name}.sqlite") as db:
             report = runner(db, pages, faults=faults, concurrency=concurrency).collect(
                 stores(50), RUNS, 40
@@ -205,7 +206,10 @@ def benchmark(directory):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", required=True, type=Path)
-    parser.add_argument("--benchmark", action="store_true")
+    parser.add_argument(
+        "--benchmark", action="store_true",
+        help="also time three 50-store runs; typically takes about 45 seconds",
+    )
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(dir=args.out) as staging:
@@ -213,10 +217,12 @@ def main():
         results, coverage = verify(directory)
         for name, data in (("verification", results), ("coverage", coverage)):
             (args.out / f"{name}.json").write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
-        print("Correctness and fault scenarios passed.", flush=True)
+        print(f"Correctness and fault scenarios passed. Reports saved to {args.out.resolve()}.", flush=True)
         if args.benchmark:
+            print("Running the benchmark. The sequential baseline takes about 30 seconds.", flush=True)
             data = benchmark(directory)
             (args.out / "benchmark.json").write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+            print(f"Benchmark complete. Results saved to {(args.out / 'benchmark.json').resolve()}.", flush=True)
 
 
 if __name__ == "__main__":
